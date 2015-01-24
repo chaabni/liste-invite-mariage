@@ -1,0 +1,9 @@
+#invite-list th:hover {
+  cursor: pointer;
+}
+#invite-list td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*# sourceMappingURL=app.css.map */

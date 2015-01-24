@@ -1,0 +1,11 @@
+{
+  "name": "liste-invite-mariage",
+  "version": "",
+  "dependencies": {
+    "angular": "",
+    "angular-i18n": "",
+    "materialize": "~0.95.0",
+    "angularfire": "~0.9.1"
+  },
+  "devDependencies": {}
+}
