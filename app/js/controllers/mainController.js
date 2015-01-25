@@ -1,6 +1,8 @@
 angular.module('liste-invite-mariage').controller('mainController', function ($scope, inviteService) {
     "use strict";
 
+	$scope.statut = 'ALL';
+
 	$scope.invites = inviteService.fetch();
 
 	$scope.order = function (tri) {
@@ -8,5 +10,6 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			$scope.inverse = !$scope.inverse;
 		}
 		$scope.tri = tri;
-	}
+	};
+
 });
