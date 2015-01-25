@@ -2,6 +2,7 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
     "use strict";
 
 	$scope.statut = 'ALL';
+	$scope.cote = 'ALL';
 
 	$scope.invites = inviteService.fetch();
 

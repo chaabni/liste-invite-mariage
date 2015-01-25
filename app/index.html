@@ -46,29 +46,49 @@
 </div>
 
 <section class="container">
+	<section class="row">
+		<div class="col s6">
+			<form action="#">
+				<p>
+					<input name="statut" type="radio" id="show-all" ng-model="statut" value="ALL"/>
+					<label for="show-all">Afficher tout</label>
+				</p>
+				<p>
+					<input name="statut" type="radio" id="show-confirmed-honneur" ng-model="statut" value="ONLY_HONNEUR_CONFIRMED"/>
+					<label for="show-confirmed-honneur">Afficher uniquement les présents au vin d'honneur</label>
+				</p>
+				<p>
+					<input name="statut" type="radio" id="show-confirmed-diner" ng-model="statut" value="ONLY_DINER_CONFIRMED"/>
+					<label for="show-confirmed-diner">Afficher uniquement les présents au diner</label>
+				</p>
+				<p>
+					<input name="statut" type="radio" id="show-no-answer" ng-model="statut" value="ONLY_UNANSWERED"/>
+					<label for="show-no-answer">Afficher uniquement les non réponses</label>
+				</p>
+				<p>
+					<input name="statut" type="radio" id="show-refused" ng-model="statut" value="ONLY_REFUSED"/>
+					<label for="show-refused">Afficher uniquement les refus</label>
+				</p>
+			</form>
+		</div>
+		<div class="col s6">
+			<form action="#">
+				<p>
+					<input name="statut" type="radio" id="show-all-cote" ng-model="cote" value="ALL"/>
+					<label for="show-all-cote">Afficher les invités de Thierry et claire</label>
+				</p>
+				<p>
+					<input name="statut" type="radio" id="show-invites-thierry" ng-model="cote" value="ONLY_CLAIRE"/>
+					<label for="show-invites-thierry">Afficher uniquement les invités de Claire</label>
+				</p>
+				<p>
+					<input name="statut" type="radio" id="show-invites-claire" ng-model="cote" value="ONLY_THIERRY"/>
+					<label for="show-invites-claire">Afficher uniquement les invités de Thierry</label>
+				</p>
+			</form>
+		</div>
+	</section>
 
-	<form action="#">
-		<p>
-			<input name="statut" type="radio" id="show-all" ng-model="statut" value="ALL"/>
-			<label for="show-all">Afficher tout</label>
-		</p>
-		<p>
-			<input name="statut" type="radio" id="show-confirmed-honneur" ng-model="statut" value="ONLY_HONNEUR_CONFIRMED"/>
-			<label for="show-confirmed-honneur">Afficher uniquement les présents au vin d'honneur</label>
-		</p>
-		<p>
-			<input name="statut" type="radio" id="show-confirmed-diner" ng-model="statut" value="ONLY_DINER_CONFIRMED"/>
-			<label for="show-confirmed-diner">Afficher uniquement les présents au diner</label>
-		</p>
-		<p>
-			<input name="statut" type="radio" id="show-no-answer" ng-model="statut" value="ONLY_UNANSWERED"/>
-			<label for="show-no-answer">Afficher uniquement les non réponses</label>
-		</p>
-		<p>
-			<input name="statut" type="radio" id="show-refused" ng-model="statut" value="ONLY_REFUSED"/>
-			<label for="show-refused">Afficher uniquement les refus</label>
-		</p>
-	</form>
 </section>
 
 
@@ -85,7 +105,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut">
+		<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote ">
 			<td>{{invite.nom}}</td>
 			<td>{{invite.adresse}}</td>
 			<td>{{invite.enfants}}</td>
@@ -111,6 +131,7 @@
 <script src="js/services/firebaseRef.js"></script>
 <script src="js/services/inviteService.js"></script>
 <script src="js/filters/matchStatut.js"></script>
+<script src="js/filters/matchCote.js"></script>
 <script type="text/javascript" src="js/controllers/mainController.js"></script>
 <!-- endbuild -->
 
