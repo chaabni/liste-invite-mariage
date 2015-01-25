@@ -76,8 +76,12 @@
 				<td>{{invite.nom}}</td>
 				<td>{{invite.adresse}}</td>
 				<td>{{invite.enfants}}</td>
-				<td>{{invite.honneur}}</td>
-				<td>{{invite.diner}}</td>
+				<td><i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
+								'icon-question orange-text' : invite.honneur === 'unanswered',
+								'icon-close red-text' : invite.honneur === 'refused'}"></i></td>
+				<td><i ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
+								'icon-question orange-text' : invite.diner === 'unanswered',
+								'icon-close red-text' : invite.diner === 'refused'}"></i></td>
 			</tr>
 			</tbody>
 		</table>
