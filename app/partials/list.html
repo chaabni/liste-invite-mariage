@@ -1,0 +1,88 @@
+<section>
+	<div class="navbar-fixed">
+		<nav class="blue-grey">
+			<div class="container nav-wrapper">
+				<form>
+					<div class="input-field col s12">
+						<input id="search" type="text" ng-model="search.nom" placeholder="Rechercher par nom" autofocus>
+						<label for="search"><i class="mdi-action-search"></i></label>
+					</div>
+				</form>
+			</div>
+		</nav>
+	</div>
+
+	<section class="container">
+		<section class="row">
+			<div class="col s6">
+				<form action="#">
+					<p>
+						<input name="statut" type="radio" id="show-all" ng-model="statut" value="ALL"/>
+						<label for="show-all">Afficher tous les invités</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-confirmed-honneur" ng-model="statut" value="ONLY_HONNEUR_CONFIRMED"/>
+						<label for="show-confirmed-honneur">Présents au vin d'honneur</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-confirmed-diner" ng-model="statut" value="ONLY_DINER_CONFIRMED"/>
+						<label for="show-confirmed-diner">Présents au diner</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-no-answer" ng-model="statut" value="ONLY_UNANSWERED"/>
+						<label for="show-no-answer">Non répondu</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-refused" ng-model="statut" value="ONLY_REFUSED"/>
+						<label for="show-refused">Refusés</label>
+					</p>
+				</form>
+			</div>
+			<div class="col s6">
+				<form action="#">
+					<p>
+						<input name="statut" type="radio" id="show-all-cote" ng-model="cote" value="ALL"/>
+						<label for="show-all-cote">Afficher les invités de Claire et Thierry</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-invites-thierry" ng-model="cote" value="ONLY_CLAIRE"/>
+						<label for="show-invites-thierry">Invités de Claire</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-invites-claire" ng-model="cote" value="ONLY_THIERRY"/>
+						<label for="show-invites-claire">Invités de Thierry</label>
+					</p>
+				</form>
+			</div>
+		</section>
+
+	</section>
+
+
+
+	<section class="container">
+		<table id="invite-list" class="bordered striped hoverable centered">
+			<thead>
+			<tr>
+				<th ng-click="order('nom')">Nom</th>
+				<th ng-click="order('adresse')">Adresse</th>
+				<th ng-click="order('enfants')">Enfants</th>
+				<th ng-click="order('honneur')">Vin d'honneur</th>
+				<th ng-click="order('diner')">Diner</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote ">
+				<td>{{invite.nom}}</td>
+				<td>{{invite.adresse}}</td>
+				<td>{{invite.enfants}}</td>
+				<td>{{invite.honneur}}</td>
+				<td>{{invite.diner}}</td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
+
+
+</section>
+

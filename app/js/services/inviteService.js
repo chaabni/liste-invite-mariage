@@ -8,7 +8,7 @@ angular.module('liste-invite-mariage').factory('inviteService', function ($fireb
 
 	return {
 		fetch : function () {
-			return invites;
+			return invites.$loaded();
 		},
 		getByRecordKey: function (recordKey) {
 			return invites.$getRecord(recordKey);

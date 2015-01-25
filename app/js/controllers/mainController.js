@@ -4,7 +4,13 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 	$scope.statut = 'ALL';
 	$scope.cote = 'ALL';
 
-	$scope.invites = inviteService.fetch();
+	inviteService.fetch()
+		.then(function (data) {
+			$scope.invites = data;
+		})
+		.catch(function(error) {
+			console.error("Error:", error);
+		});
 
 	$scope.order = function (tri) {
 		if($scope.tri === tri) {
