@@ -2,8 +2,8 @@
   "name": "liste-invite-mariage",
   "version": "",
   "dependencies": {
-    "angular": "",
-    "angular-i18n": "",
+    "angular": "~1.3.10",
+    "angular-i18n": "~1.3.10",
     "materialize": "~0.95.0",
     "angularfire": "~0.9.1",
     "lodash": "~3.0.0",

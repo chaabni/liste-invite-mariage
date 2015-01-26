@@ -9,7 +9,7 @@ angular.module('liste-invite-mariage').config(function ($routeProvider) {
 		})
 		.when('/stats', {
 			templateUrl: '/partials/stats.html',
-			controller: 'mainController'
+			controller: 'statsController'
 		})
 		.otherwise({redirectTo: 'list'})
 

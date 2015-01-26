@@ -19,4 +19,9 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		$scope.tri = tri;
 	};
 
+	$scope.showAddForm = function () {
+		$('#add-form').openModal();
+		$('select').material_select();
+	};
+
 });

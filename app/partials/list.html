@@ -53,12 +53,54 @@
 						<label for="show-invites-claire">Invités de Thierry</label>
 					</p>
 				</form>
+				<p>
+					<button class="waves-effect waves-light btn modal-trigger" ng-click="showAddForm()"><i class="mdi-content-add left"></i>Ajouter un invité</button>
+				</p>
 			</div>
 		</section>
-
 	</section>
 
+	<div id="add-form" class="modal" ng-controller="addFormController">
+		<h4>Ajouter un invité</h4>
+		<form class="col s12" name="addForm" novalidate>
+			<div class="row">
+				<label>De quel côté de la famille est cet invité ?</label>
+				<select class="browser-default" ng-model="cote" name="cote" required ng-options="coteOption as coteOption.label for coteOption in coteOptions"></select>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<input id="nom" type="text" name="nom" ng-model="invite.nom" ng-class="{'invalid' : addForm.nom.$dirty && addForm.nom.$error.required}" required autofocus>
+					<label for="nom">Nom et Prénom</label>
+					<span class="red-text" ng-show="addForm.nom.$dirty && addForm.nom.$error.required">Le nom est obligatoire</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<input id="adresse" type="text" name="adresse" ng-class="{'invalid' : addForm.nom.$dirty && addForm.nom.$error.required}" required ng-model="invite.adresse">
+					<label for="adresse">Adresse</label>
+					<span class="red-text" ng-show="addForm.adresse.$dirty && addForm.adresse.$error.required">L'adresse est obligatoire</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<input id="enfants" type="number" name="enfants" ng-class="{'invalid' : addForm.nom.$dirty && addForm.nom.$error.required}" required  ng-model="invite.enfants">
+					<label for="enfants">Nombre d'enfants</label>
+					<span class="red-text" ng-show="addForm.enfants.$dirty && addForm.enfants.$error.required">Le nombre d'enfants est obligatoire</span>
+				</div>
+			</div>
+			<div class="row">
+				<label>Réponse pour le vin d'honneur</label>
+				<select class="browser-default" ng-model="honneur" name="honneur" required ng-options="honneurOption as honneurOption.label for honneurOption in honneurOptions"></select>
+			</div>
+			<div class="row">
+				<label>Réponse pour le diner</label>
+				<select class="browser-default" ng-model="diner" name="diner" required ng-options="dinerOption as dinerOption.label for dinerOption in dinerOptions"></select>
+			</div>
+		</form>
+		<button class="waves-effect btn modal-close" ng-class="{'disabled' : addForm.$invalid}" ng-disabled="addForm.$invalid" ng-click="addInvite(invite)">Ajouter</button>
+	</div>
 
+	<hr/>
 
 	<section class="container">
 		<table id="invite-list" class="bordered striped hoverable centered">
@@ -86,7 +128,5 @@
 			</tbody>
 		</table>
 	</section>
-
-
 </section>
 

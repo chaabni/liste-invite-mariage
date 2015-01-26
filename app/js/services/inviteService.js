@@ -10,8 +10,8 @@ angular.module('liste-invite-mariage').factory('inviteService', function ($fireb
 		fetch : function () {
 			return invites.$loaded();
 		},
-		getByRecordKey: function (recordKey) {
-			return invites.$getRecord(recordKey);
+		add : function (invite) {
+			return invites.$add(invite);
 		},
 		save : function (gift) {
 			return invites.$save(gift);
