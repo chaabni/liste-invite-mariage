@@ -15,7 +15,7 @@ angular.module('liste-invite-mariage').directive('editable', function ($timeout)
 				scope.$apply(function () {
 					scope.editMode = false;
 					scope.onSave();
-					toast('Modification sauvegardée', 4000);
+					toast('Modification sauvegardée', 4000, 'green');
 				});
 			};
 

@@ -118,12 +118,16 @@
 				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
-				<td><i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
+				<td class="editable" ng-click="switchStatus(invite, 'honneur')">
+					<i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
 								'icon-question orange-text' : invite.honneur === 'unanswered',
-								'icon-close red-text' : invite.honneur === 'refused'}"></i></td>
-				<td><i ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
+								'icon-close red-text' : invite.honneur === 'refused'}"></i>
+				</td>
+				<td class="editable" ng-click="switchStatus(invite, 'diner')">
+					<i  ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
 								'icon-question orange-text' : invite.diner === 'unanswered',
-								'icon-close red-text' : invite.diner === 'refused'}"></i></td>
+								'icon-close red-text' : invite.diner === 'refused'}"></i>
+				</td>
 			</tr>
 			</tbody>
 		</table>

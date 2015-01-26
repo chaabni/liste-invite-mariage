@@ -24,4 +24,16 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		$('select').material_select();
 	};
 
+	$scope.switchStatus = function (invite, statut) {
+		if(invite[statut] === "unanswered") {
+			invite[statut] = "confirmed";
+		} else if (invite[statut] === "confirmed") {
+			invite[statut] = "refused";
+		} else {
+			invite[statut] = 'unanswered';
+		}
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	};
+
 });
