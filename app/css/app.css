@@ -51,4 +51,8 @@
   padding-left: 30px;
 }
 
+.editable:hover {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=app.css.map */

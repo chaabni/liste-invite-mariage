@@ -28,3 +28,9 @@
 	}
 
 }
+
+.editable {
+	&:hover {
+		cursor : pointer;
+	}
+}
