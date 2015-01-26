@@ -41,6 +41,6 @@ angular.module('liste-invite-mariage').controller('addFormController', function 
 			initForm();
 			toast('Invité ajouté', 4000, 'green');
 		});
-	}
+	};
 
 });

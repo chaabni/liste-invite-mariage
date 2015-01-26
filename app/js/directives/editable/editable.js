@@ -31,10 +31,10 @@ angular.module('liste-invite-mariage').directive('editable', function ($timeout)
 			};
 
 			input.on('keypress', function (event) {
-				if ( event.which == 13 ) {
+				if ( event.which === 13 ) {
 					save();
 				}
 			});
 		}
-	}
+	};
 });

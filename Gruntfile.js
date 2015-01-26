@@ -60,7 +60,10 @@ module.exports = function (grunt) {
                         dest: '<%= distDir %>/',
                         src: [
                             'index.html',
-                            'img/**'
+                            'img/**',
+							'font/**',
+							'partials/**',
+							'js/**/*.html'
                         ]
                     }]
             }
@@ -154,7 +157,13 @@ module.exports = function (grunt) {
                         dest: '<%= distDir %>/'
                     }]
             }
-        }
+        },
+		'gh-pages': {
+			options: {
+				base: 'dist'
+			},
+			src: ['**']
+		}
     });
     grunt.registerTask('ls', ['availabletasks']);
     grunt.registerTask('package', [
@@ -177,4 +186,8 @@ module.exports = function (grunt) {
         'browserSync',
         'watch'
     ]);
+	grunt.registerTask('pub', [
+		'package',
+		'gh-pages'
+	])
 };

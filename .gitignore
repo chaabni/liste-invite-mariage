@@ -7,3 +7,4 @@ app/vendor
 *.iml
 .DS_Store
 .sass-cache/
+.grunt/

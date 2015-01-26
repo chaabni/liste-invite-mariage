@@ -32,6 +32,6 @@ angular.module('liste-invite-mariage').filter('matchStatut', function () {
 		}
 
 		return list;
-	}
+	};
 
 });

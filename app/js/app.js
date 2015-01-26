@@ -2,16 +2,18 @@ angular.module('liste-invite-mariage', ['ngRoute', 'firebase']);
 
 angular.module('liste-invite-mariage').config(function ($routeProvider) {
 
+	"use strict";
+
 	$routeProvider
 		.when('/list',  {
-			templateUrl: '/partials/list.html',
+			templateUrl: './partials/list.html',
 			controller: 'mainController'
 		})
 		.when('/stats', {
-			templateUrl: '/partials/stats.html',
+			templateUrl: './partials/stats.html',
 			controller: 'statsController'
 		})
-		.otherwise({redirectTo: 'list'})
+		.otherwise({redirectTo: 'list'});
 
 });
 

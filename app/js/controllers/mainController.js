@@ -1,4 +1,6 @@
-angular.module('liste-invite-mariage').controller('mainController', function ($scope, inviteService) {
+/*jshint -W106*/
+
+angular.module('liste-invite-mariage').controller('mainController', function ($scope, inviteService, $log) {
     "use strict";
 
 	$scope.statut = 'ALL';
@@ -9,7 +11,7 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			$scope.invites = data;
 		})
 		.catch(function(error) {
-			console.error("Error:", error);
+			$log.error("Error:", error);
 		});
 
 	$scope.order = function (tri) {

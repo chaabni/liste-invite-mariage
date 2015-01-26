@@ -20,6 +20,6 @@ angular.module('liste-invite-mariage').filter('matchCote', function () {
 		}
 
 		return cote;
-	}
+	};
 
 });
