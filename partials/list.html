@@ -1,0 +1,136 @@
+<section>
+	<div class="navbar-fixed">
+		<nav class="blue-grey">
+			<div class="container nav-wrapper">
+				<form>
+					<div class="input-field col s12">
+						<input id="search" type="text" ng-model="search.nom" placeholder="Rechercher par nom" autofocus>
+						<label for="search"><i class="mdi-action-search"></i></label>
+					</div>
+				</form>
+			</div>
+		</nav>
+	</div>
+
+	<section class="container">
+		<section class="row">
+			<div class="col s6">
+				<form action="#">
+					<p>
+						<input name="statut" type="radio" id="show-all" ng-model="statut" value="ALL"/>
+						<label for="show-all">Afficher tous les invités</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-confirmed-honneur" ng-model="statut" value="ONLY_HONNEUR_CONFIRMED"/>
+						<label for="show-confirmed-honneur">Présents au vin d'honneur</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-confirmed-diner" ng-model="statut" value="ONLY_DINER_CONFIRMED"/>
+						<label for="show-confirmed-diner">Présents au diner</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-no-answer" ng-model="statut" value="ONLY_UNANSWERED"/>
+						<label for="show-no-answer">Non répondu</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-refused" ng-model="statut" value="ONLY_REFUSED"/>
+						<label for="show-refused">Refusés</label>
+					</p>
+				</form>
+			</div>
+			<div class="col s6">
+				<form action="#">
+					<p>
+						<input name="statut" type="radio" id="show-all-cote" ng-model="cote" value="ALL"/>
+						<label for="show-all-cote">Afficher les invités de Claire et Thierry</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-invites-thierry" ng-model="cote" value="ONLY_CLAIRE"/>
+						<label for="show-invites-thierry">Invités de Claire</label>
+					</p>
+					<p>
+						<input name="statut" type="radio" id="show-invites-claire" ng-model="cote" value="ONLY_THIERRY"/>
+						<label for="show-invites-claire">Invités de Thierry</label>
+					</p>
+				</form>
+				<p>
+					<button class="waves-effect waves-light btn modal-trigger" ng-click="showAddForm()"><i class="mdi-content-add left"></i>Ajouter un invité</button>
+				</p>
+			</div>
+		</section>
+	</section>
+
+	<div id="add-form" class="modal" ng-controller="addFormController">
+		<h4>Ajouter un invité</h4>
+		<form class="col s12" name="addForm" novalidate>
+			<div class="row">
+				<label>De quel côté de la famille est cet invité ?</label>
+				<select class="browser-default" ng-model="cote" name="cote" required ng-options="coteOption as coteOption.label for coteOption in coteOptions"></select>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<input id="nom" type="text" name="nom" ng-model="invite.nom" ng-class="{'invalid' : addForm.nom.$dirty && addForm.nom.$error.required}" required autofocus>
+					<label for="nom">Nom et Prénom</label>
+					<span class="red-text" ng-show="addForm.nom.$dirty && addForm.nom.$error.required">Le nom est obligatoire</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<input id="adresse" type="text" name="adresse" ng-class="{'invalid' : addForm.nom.$dirty && addForm.nom.$error.required}" required ng-model="invite.adresse">
+					<label for="adresse">Adresse</label>
+					<span class="red-text" ng-show="addForm.adresse.$dirty && addForm.adresse.$error.required">L'adresse est obligatoire</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<input id="enfants" type="number" name="enfants" ng-class="{'invalid' : addForm.nom.$dirty && addForm.nom.$error.required}" required  ng-model="invite.enfants">
+					<label for="enfants">Nombre d'enfants</label>
+					<span class="red-text" ng-show="addForm.enfants.$dirty && addForm.enfants.$error.required">Le nombre d'enfants est obligatoire</span>
+				</div>
+			</div>
+			<div class="row">
+				<label>Réponse pour le vin d'honneur</label>
+				<select class="browser-default" ng-model="honneur" name="honneur" required ng-options="honneurOption as honneurOption.label for honneurOption in honneurOptions"></select>
+			</div>
+			<div class="row">
+				<label>Réponse pour le diner</label>
+				<select class="browser-default" ng-model="diner" name="diner" required ng-options="dinerOption as dinerOption.label for dinerOption in dinerOptions"></select>
+			</div>
+		</form>
+		<button class="waves-effect btn modal-close" ng-class="{'disabled' : addForm.$invalid}" ng-disabled="addForm.$invalid" ng-click="addInvite(invite)">Ajouter</button>
+	</div>
+
+	<hr/>
+
+	<section class="container">
+		<table id="invite-list" class="bordered striped hoverable centered">
+			<thead>
+			<tr>
+				<th ng-click="order('nom')">Nom</th>
+				<th ng-click="order('adresse')">Adresse</th>
+				<th ng-click="order('enfants')">Enfants</th>
+				<th ng-click="order('honneur')">Vin d'honneur</th>
+				<th ng-click="order('diner')">Diner</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote ">
+				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
+				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
+				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
+				<td class="editable" ng-click="switchStatus(invite, 'honneur')">
+					<i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
+								'icon-question orange-text' : invite.honneur === 'unanswered',
+								'icon-close red-text' : invite.honneur === 'refused'}"></i>
+				</td>
+				<td class="editable" ng-click="switchStatus(invite, 'diner')">
+					<i  ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
+								'icon-question orange-text' : invite.diner === 'unanswered',
+								'icon-close red-text' : invite.diner === 'refused'}"></i>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
+</section>
+
