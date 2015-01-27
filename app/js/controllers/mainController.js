@@ -5,6 +5,8 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 
 	$scope.statut = 'ALL';
 	$scope.cote = 'ALL';
+	$scope.showFriends = true;
+	$scope.showFamily = true;
 
 	inviteService.fetch()
 		.then(function (data) {

@@ -53,6 +53,16 @@
 						<label for="show-invites-claire">Invités de Thierry</label>
 					</p>
 				</form>
+				<form action="">
+					<p>
+						<input name="category" type="checkbox" id="show-friends" ng-model="showFriends"/>
+						<label for="show-friends">Ami</label>
+					</p>
+					<p>
+						<input name="category" type="checkbox" id="show-family" ng-model="showFamily"/>
+						<label for="show-family">Famille</label>
+					</p>
+				</form>
 				<p>
 					<button class="waves-effect waves-light btn modal-trigger" ng-click="showAddForm()"><i class="mdi-content-add left"></i>Ajouter un invité</button>
 				</p>
@@ -114,7 +124,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote ">
+			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote | matchCategory:showFriends:showFamily ">
 				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
