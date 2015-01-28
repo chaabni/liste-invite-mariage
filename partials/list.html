@@ -52,6 +52,10 @@
 						<input name="statut" type="radio" id="show-refused" ng-model="statut" value="ONLY_REFUSED"/>
 						<label for="show-refused">qui ne viennent pas</label>
 					</p>
+					<p>
+						<input name="statut" type="radio" id="show-party" ng-model="statut" value="ONLY_PARTY"/>
+						<label for="show-party">qui sont invités au diner</label>
+					</p>
 				</form>
 			</div>
 		</section>
@@ -103,6 +107,15 @@
 				<select class="browser-default" ng-model="honneur" name="honneur" required ng-options="honneurOption as honneurOption.label for honneurOption in honneurOptions"></select>
 			</div>
 			<div class="row">
+				<label>Invité au diner</label>
+				<p>
+					<input name="party" type="radio" id="oui" value="oui" ng-model="party"/>
+					<label for="oui">Oui</label>
+					<input name="party" type="radio" id="non" value="non" ng-model="party"/>
+					<label for="non">Non</label>
+				</p>
+			</div>
+			<div class="row" ng-show="party === 'oui'">
 				<label>Réponse pour le diner</label>
 				<select class="browser-default" ng-model="diner" name="diner" required ng-options="dinerOption as dinerOption.label for dinerOption in dinerOptions"></select>
 			</div>
@@ -116,6 +129,7 @@
 		<table id="invite-list" class="bordered striped hoverable centered">
 			<thead>
 			<tr>
+				<th ng-click="order('party')">Invite au diner</th>
 				<th ng-click="order('nom')">Nom</th>
 				<th ng-click="order('adresse')">Adresse</th>
 				<th ng-click="order('enfants')">Enfants</th>
@@ -125,6 +139,9 @@
 			</thead>
 			<tbody>
 			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote | matchCategory:showFriends:showFamily ">
+				<td class="editable" ng-click="switchParty(invite)">
+					<i ng-class="{'icon-cutlery' : invite.party === 'oui'}"></i>
+				</td>
 				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
@@ -134,7 +151,7 @@
 								'icon-close red-text' : invite.honneur === 'refused'}"></i>
 				</td>
 				<td class="editable" ng-click="switchStatus(invite, 'diner')">
-					<i  ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
+					<i ng-show="invite.party === 'oui'"  ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
 								'icon-question orange-text' : invite.diner === 'unanswered',
 								'icon-close red-text' : invite.diner === 'refused'}"></i>
 				</td>
