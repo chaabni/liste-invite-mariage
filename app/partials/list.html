@@ -129,19 +129,16 @@
 		<table id="invite-list" class="bordered striped hoverable centered">
 			<thead>
 			<tr>
-				<th ng-click="order('party')">Invite au diner</th>
 				<th ng-click="order('nom')">Nom</th>
 				<th ng-click="order('adresse')">Adresse</th>
 				<th ng-click="order('enfants')">Enfants</th>
 				<th ng-click="order('honneur')">Vin d'honneur</th>
+				<th ng-click="order('party')">Invite au diner</th>
 				<th ng-click="order('diner')">Diner</th>
 			</tr>
 			</thead>
 			<tbody>
 			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote | matchCategory:showFriends:showFamily ">
-				<td class="editable" ng-click="switchParty(invite)">
-					<i ng-class="{'icon-cutlery' : invite.party === 'oui'}"></i>
-				</td>
 				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
@@ -149,6 +146,9 @@
 					<i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
 								'icon-question orange-text' : invite.honneur === 'unanswered',
 								'icon-close red-text' : invite.honneur === 'refused'}"></i>
+				</td>
+				<td class="editable" ng-click="switchParty(invite)">
+					<i ng-class="{'icon-cutlery' : invite.party === 'oui'}"></i>
 				</td>
 				<td class="editable" ng-click="switchStatus(invite, 'diner')">
 					<i ng-show="invite.party === 'oui'"  ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
