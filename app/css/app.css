@@ -26,6 +26,10 @@
   content: "\f00d";
 }
 
+.icon-cutlery:before {
+  content: "\f0f5";
+}
+
 .icon-question:before {
   content: "\f128";
 }

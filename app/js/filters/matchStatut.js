@@ -31,6 +31,12 @@ angular.module('liste-invite-mariage').filter('matchStatut', function () {
 			});
 		}
 
+		if (statut === 'ONLY_PARTY') {
+			return _.filter(list, function (invite) {
+				return (invite.party === 'oui');
+			});
+		}
+
 		return list;
 	};
 

@@ -40,4 +40,15 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		toast('Modification sauvegardée', 2000, 'green');
 	};
 
+	$scope.switchParty = function (invite) {
+
+		if (invite.party === 'non') {
+			invite.party = 'oui';
+		} else {
+			invite.party = 'non';
+		}
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	}
+
 });
