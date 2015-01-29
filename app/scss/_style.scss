@@ -56,11 +56,6 @@ hr {
 }
 
 #filter-section {
-	-webkit-transform: translate(0, 0);
-	-moz-transform: translate(0, 0);
-	-ms-transform: translate(0, 0);
-	-o-transform: translate(0, 0);
-	transform: translate(0, 0);
 	transition : transform 0.5s ease;
 
 	&.hide {
