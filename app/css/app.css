@@ -26,6 +26,14 @@
   content: "\f00d";
 }
 
+.icon-eye:before {
+  content: "\f06e";
+}
+
+.icon-eye-slash:before {
+  content: "\f070";
+}
+
 .icon-cutlery:before {
   content: "\f0f5";
 }
@@ -42,8 +50,24 @@
   cursor: pointer;
 }
 #invite-list td {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+hr {
+  margin-top: 26px;
+  margin-bottom: 26px;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+}
+
+.card hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .checkboxes {
@@ -57,6 +81,26 @@
 
 .editable:hover {
   cursor: pointer;
+}
+
+.card-content-title {
+  text-decoration: underline;
+}
+
+#filter-section {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  transition: transform 0.5s ease;
+}
+#filter-section.hide {
+  -webkit-transform: translate(0, -280px);
+  -moz-transform: translate(0, -280px);
+  -ms-transform: translate(0, -280px);
+  -o-transform: translate(0, -280px);
+  transform: translate(0, -280px);
 }
 
 /*# sourceMappingURL=app.css.map */

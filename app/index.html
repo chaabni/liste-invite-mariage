@@ -13,15 +13,14 @@
     <link rel="stylesheet" href="css/app.css"/>
     <!-- endbuild -->
 </head>
-<body>
+<body ng-controller="headerController">
 
 <div class="navbar-fixed">
-	<nav>
+	<nav class="light-red">
 		<div class="container nav-wrapper">
-			<a href="#" class="brand-logo">Invités</a>
+			<a href="#" class="brand-logo">Liste des invités</a>
 			<ul id="nav-mobile" class="right side-nav">
-				<li><a href="#/list">Liste</a></li>
-				<li><a href="#/stats">Statistique</a></li>
+				<li class="editable" ng-click="toogleFilter()"><i ng-class="{'icon-eye' : showFilter, 'icon-eye-slash' : !showFilter}"></i></li>
 			</ul>
 		</div>
 	</nav>
@@ -48,6 +47,7 @@
 <script src="js/filters/matchCategory.js"></script>
 <script src="js/filters/statutIcon.js"></script>
 <script src="js/directives/editable/editable.js"></script>
+<script src="js/controllers/headerController.js"></script>
 <script src="js/controllers/mainController.js"></script>
 <script src="js/controllers/addFormController.js"></script>
 <script src="js/controllers/statsController.js"></script>

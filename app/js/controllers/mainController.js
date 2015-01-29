@@ -8,6 +8,41 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 	$scope.showFriends = true;
 	$scope.showFamily = true;
 
+	$scope.honneurEnfants = 0;
+	$scope.dinerEnfants = 0;
+	$scope.honneurAdultes = 0;
+	$scope.dinerAdultes = 0;
+
+	$scope.$watch('invites', function (newInvites) {
+		$scope.honneurEnfants = 0;
+		$scope.dinerEnfants = 0;
+		$scope.honneurAdultes = 0;
+		$scope.dinerAdultes = 0;
+
+		var honneurEnfants = 0,
+			dinerEnfants = 0,
+			honneurAdultes = 0,
+			dinerAdultes = 0;
+
+		_.each(newInvites, function (invite) {
+			if (invite.honneur === 'confirmed') {
+				honneurEnfants += +invite.enfants;
+				honneurAdultes++;
+			}
+
+			if (invite.diner === 'confirmed') {
+				dinerEnfants += +invite.enfants;
+				dinerAdultes++;
+			}
+		});
+
+		$scope.honneurEnfants = honneurEnfants;
+		$scope.dinerEnfants = dinerEnfants;
+		$scope.honneurAdultes = honneurAdultes;
+		$scope.dinerAdultes = dinerAdultes;
+
+	}, true);
+
 	inviteService.fetch()
 		.then(function (data) {
 			$scope.invites = data;
@@ -36,6 +71,7 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		} else {
 			invite[statut] = 'unanswered';
 		}
+
 		$scope.invites.$save(invite);
 		toast('Modification sauvegardée', 2000, 'green');
 	};
@@ -46,6 +82,7 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.party = 'oui';
 		} else {
 			invite.party = 'non';
+			invite.diner = 'unanswered';
 		}
 		$scope.invites.$save(invite);
 		toast('Modification sauvegardée', 2000, 'green');
