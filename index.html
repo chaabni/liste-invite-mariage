@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width">
     <title>Invités Mariage Thierry & Claire</title>
 
-    <link rel="stylesheet" href="css/41936931.liste-invite-mariage.css"/>
+    <link rel="stylesheet" href="css/d604e4ce.liste-invite-mariage.css"/>
 </head>
-<body>
+<body ng-controller="headerController">
 
 <div class="navbar-fixed">
-	<nav>
+	<nav class="light-red">
 		<div class="container nav-wrapper">
-			<a href="#" class="brand-logo">Invités</a>
+			<a href="#" class="brand-logo">Liste des invités</a>
 			<ul id="nav-mobile" class="right side-nav">
-				<li><a href="#/list">Liste</a></li>
-				<li><a href="#/stats">Statistique</a></li>
+				<li class="editable" ng-click="toogleFilter()"><i ng-class="{'icon-eye' : showFilter, 'icon-eye-slash' : !showFilter}"></i></li>
 			</ul>
 		</div>
 	</nav>
@@ -25,7 +24,7 @@
 <section ng-view></section>
 
 
-<script src="js/905c180c.liste-invite-mariage.js"></script>
+<script src="js/9eacd64f.liste-invite-mariage.js"></script>
 
 </body>
 </html>
