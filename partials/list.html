@@ -147,13 +147,13 @@
 			<table id="invite-list" class="bordered striped hoverable centered">
 				<thead>
 				<tr>
-					<th ng-click="order('ready')">Invitation prête ?</th>
+					<th ng-click="order('ready')"><i class="icon-envelope-o"></i></th>
+					<th ng-click="order('honneur')">Vin d'honneur</th>
+					<th ng-click="order('party')"><i class="icon-cutlery"></i></th>
+					<th ng-click="order('diner')">Diner</th>
 					<th ng-click="order('nom')">Nom</th>
 					<th ng-click="order('adresse')">Adresse</th>
 					<th ng-click="order('enfants')">Enfants</th>
-					<th ng-click="order('honneur')">Vin d'honneur</th>
-					<th ng-click="order('party')">Invité au diner</th>
-					<th ng-click="order('diner')">Diner</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -161,9 +161,6 @@
 					<td class="editable" ng-click="switchReady(invite)">
 						<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 					</td>
-					<td editable value="invite.nom" on-save="invites.$save(invite)"></td>
-					<td editable value="invite.adresse" on-save="invites.$save(invite)"></td>
-					<td editable value="invite.enfants" on-save="invites.$save(invite)"></td>
 					<td class="editable" ng-click="switchStatus(invite, 'honneur')">
 						<i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
 							'icon-question orange-text' : invite.honneur === 'unanswered',
@@ -177,6 +174,9 @@
 							'icon-question orange-text' : invite.diner === 'unanswered',
 							'icon-close red-text' : invite.diner === 'refused'}"></i>
 					</td>
+					<td editable value="invite.nom" on-save="invites.$save(invite)"></td>
+					<td editable value="invite.adresse" on-save="invites.$save(invite)"></td>
+					<td editable value="invite.enfants" on-save="invites.$save(invite)"></td>
 				</tr>
 				</tbody>
 			</table>
