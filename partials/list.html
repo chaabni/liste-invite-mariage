@@ -13,16 +13,12 @@
 					</p>
 					<hr/>
 					<p>
-						<input name="statut" type="radio" id="show-all-cote" ng-model="cote" value="ALL"/>
-						<label for="show-all-cote">de Claire et Thierry</label>
+						<input name="cote" type="checkbox" id="show-claire" ng-model="showClaire"/>
+						<label for="show-claire">de Claire</label>
 					</p>
 					<p>
-						<input name="statut" type="radio" id="show-invites-thierry" ng-model="cote" value="ONLY_CLAIRE"/>
-						<label for="show-invites-thierry">de Claire</label>
-					</p>
-					<p>
-						<input name="statut" type="radio" id="show-invites-claire" ng-model="cote" value="ONLY_THIERRY"/>
-						<label for="show-invites-claire">de Thierry</label>
+						<input name="cote" type="checkbox" id="show-thierry" ng-model="showThierry"/>
+						<label for="show-thierry">de Thierry</label>
 					</p>
 				</form>
 			</div>
@@ -162,7 +158,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote | matchCategory:showFriends:showFamily ">
+			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily ">
 				<td class="editable" ng-click="switchReady(invite)">
 					<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 				</td>
