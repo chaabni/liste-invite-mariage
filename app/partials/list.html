@@ -162,9 +162,9 @@
 				<td class="editable" ng-click="switchReady(invite)">
 					<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 				</td>
-				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
-				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
-				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
+				<td editable value="invite.nom" on-save="invites.$save(invite)"></td>
+				<td editable value="invite.adresse" on-save="invites.$save(invite)"></td>
+				<td editable value="invite.enfants" on-save="invites.$save(invite)"></td>
 				<td class="editable" ng-click="switchStatus(invite, 'honneur')">
 					<i ng-class="{'icon-check green-text' : invite.honneur === 'confirmed',
 								'icon-question orange-text' : invite.honneur === 'unanswered',

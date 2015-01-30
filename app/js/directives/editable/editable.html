@@ -1,5 +1,6 @@
-<div class="editable" ng-click="enterEditMode()">
+<td class="editable" ng-click="enterEditMode()">
+	<i ng-hide="editMode || value" class="icon-exclamation-triangle red-text"></i>
 	<span ng-hide="editMode">{{value}}</span>
 	<input ng-show="editMode" type="text" ng-model="value"/>
-</div>
+</td>
 

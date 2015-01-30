@@ -2,7 +2,8 @@ angular.module('liste-invite-mariage').directive('editable', function ($timeout)
 	"use strict";
 
 	return {
-		restrict: 'E',
+		restrict: 'EA',
+		transclude : true,
 		templateUrl : 'js/directives/editable/editable.html',
 		replace: true,
 		scope: {
