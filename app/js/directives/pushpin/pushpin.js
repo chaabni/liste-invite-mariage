@@ -9,5 +9,5 @@ angular.module('liste-invite-mariage').directive('pushpin', function () {
 				offset: 80
 			});
 		}
-	}
+	};
 });
