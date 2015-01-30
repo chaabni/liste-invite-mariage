@@ -4,9 +4,10 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
     "use strict";
 
 	$scope.statut = 'ALL';
-	$scope.cote = 'ALL';
 	$scope.showFriends = true;
 	$scope.showFamily = true;
+	$scope.showClaire = true;
+	$scope.showThierry = true;
 
 	$scope.honneurEnfants = 0;
 	$scope.dinerEnfants = 0;

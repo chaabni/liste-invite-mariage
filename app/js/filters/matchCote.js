@@ -1,25 +1,21 @@
 angular.module('liste-invite-mariage').filter('matchCote', function () {
 	"use strict";
 
-	return function (list, cote) {
+	return function (list, showClaire, showThierry) {
 
-		if (cote === 'ALL') {
+		if (showClaire && showThierry) {
 			return list;
-		}
-
-		if (cote === 'ONLY_THIERRY') {
-			return _.filter(list, function (invite) {
-				return invite.cote === 'Thierry';
-			});
-		}
-
-		if (cote === 'ONLY_CLAIRE') {
+		} else if (showClaire && !showThierry) {
 			return _.filter(list, function (invite) {
 				return invite.cote === 'Claire';
 			});
+		} else if (!showClaire && showThierry) {
+			return _.filter(list, function (invite) {
+				return invite.cote === 'Thierry';
+			});
+		} else {
+			return [];
 		}
-
-		return cote;
 	};
 
 });
