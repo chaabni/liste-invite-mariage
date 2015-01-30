@@ -158,7 +158,7 @@
 				</thead>
 				<tbody>
 				<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily ">
-					<td class="editable" ng-click="switchReady(invite)">
+					<td class="editable" ng-click="switchReady(invite)" width="80px">
 						<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 					</td>
 					<td class="editable" ng-click="switchStatus(invite, 'honneur')">
@@ -166,7 +166,7 @@
 							'icon-question orange-text' : invite.honneur === 'unanswered',
 							'icon-close red-text' : invite.honneur === 'refused'}"></i>
 					</td>
-					<td class="editable" ng-click="switchParty(invite)">
+					<td class="editable" ng-click="switchParty(invite)"  width="80px">
 						<i ng-class="{'icon-cutlery' : invite.party === 'oui'}"></i>
 					</td>
 					<td class="editable" ng-click="switchStatus(invite, 'diner')">
