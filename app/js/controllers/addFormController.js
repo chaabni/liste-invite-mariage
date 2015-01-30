@@ -5,7 +5,8 @@ angular.module('liste-invite-mariage').controller('addFormController', function 
 		$scope.invite =  {
 			enfants: 0,
 			honneur: 'unanswered',
-			diner: 'unanswered'
+			diner: 'unanswered',
+			ready : 'non'
 		};
 
 		$scope.cote = $scope.coteOptions[0];
