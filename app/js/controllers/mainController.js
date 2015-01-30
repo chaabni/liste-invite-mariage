@@ -88,4 +88,14 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		toast('Modification sauvegardée', 2000, 'green');
 	};
 
+	$scope.switchReady = function (invite) {
+		if (invite.ready === 'non') {
+			invite.ready = 'oui';
+		} else {
+			invite.ready = 'non';
+		}
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	}
+
 });

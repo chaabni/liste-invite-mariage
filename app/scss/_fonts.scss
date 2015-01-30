@@ -23,6 +23,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-envelope-o:before {
+	content: "\f003";
+}
+
 .icon-check:before {
 	content: "\f00c";
 }

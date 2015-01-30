@@ -152,6 +152,7 @@
 		<table id="invite-list" class="bordered striped hoverable centered">
 			<thead>
 			<tr>
+				<th ng-click="order('ready')">Invitation prête ?</th>
 				<th ng-click="order('nom')">Nom</th>
 				<th ng-click="order('adresse')">Adresse</th>
 				<th ng-click="order('enfants')">Enfants</th>
@@ -162,6 +163,9 @@
 			</thead>
 			<tbody>
 			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:cote | matchCategory:showFriends:showFamily ">
+				<td class="editable" ng-click="switchReady(invite)">
+					<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
+				</td>
 				<td><editable value="invite.nom" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.adresse" on-save="invites.$save(invite)"></editable></td>
 				<td><editable value="invite.enfants" on-save="invites.$save(invite)"></editable></td>
