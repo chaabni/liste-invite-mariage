@@ -106,4 +106,8 @@ hr {
   transform: translate(0, -280px);
 }
 
+.legend-item {
+  margin: 5px 0;
+}
+
 /*# sourceMappingURL=app.css.map */
