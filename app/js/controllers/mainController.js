@@ -96,6 +96,6 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		}
 		$scope.invites.$save(invite);
 		toast('Modification sauvegardée', 2000, 'green');
-	}
+	};
 
 });
