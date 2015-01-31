@@ -14,6 +14,8 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 	$scope.honneurAdultes = 0;
 	$scope.dinerAdultes = 0;
 
+	$('.tooltipped').tooltip();
+
 	$scope.$watch('invites', function (newInvites) {
 		$scope.honneurEnfants = 0;
 		$scope.dinerEnfants = 0;

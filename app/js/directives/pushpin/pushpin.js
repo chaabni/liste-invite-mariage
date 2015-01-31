@@ -3,7 +3,7 @@ angular.module('liste-invite-mariage').directive('pushpin', function () {
 
 	return {
 		restrict : 'A',
-		link : function (scope, element, attt) {
+		link : function (scope, element) {
 			$(element).pushpin({
 				top: $(element).offset().top,
 				offset: 80

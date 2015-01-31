@@ -13,14 +13,24 @@
     <link rel="stylesheet" href="css/app.css"/>
     <!-- endbuild -->
 </head>
-<body ng-controller="headerController">
+<body ng-controller="headerController as headerCtrl">
 
 <div class="navbar-fixed">
 	<nav class="light-red">
 		<div class="container nav-wrapper">
 			<a href="#" class="brand-logo">Liste des invités</a>
+
+			<form>
+				<div  id="nav-search" class="input-field col s12">
+					<input id="search" type="text" required ng-model="headerCtrl.search.nom" autofocus>
+					<label for="search"><i class="mdi-action-search"></i></label>
+				</div>
+			</form>
+
 			<ul id="nav-mobile" class="right side-nav">
-				<li class="editable" ng-click="toogleFilter()"><i ng-class="{'icon-eye' : showFilter, 'icon-eye-slash' : !showFilter}"></i></li>
+				<li class="editable" ng-click="toogleFilter()">
+					<i class="mdi-av-equalizer left"></i> Statistiques
+				</li>
 			</ul>
 		</div>
 	</nav>
