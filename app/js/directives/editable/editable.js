@@ -38,9 +38,6 @@ angular.module('liste-invite-mariage').directive('editable', function ($timeout)
 				}
 			});
 
-			input.on('blur', function () {
-				save();
-			});
 		}
 	};
 });

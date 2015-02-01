@@ -16,10 +16,6 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 
 	$('.tooltipped').tooltip();
 
-	$scope.getTimes = function(n){
-		return new Array(n);
-	};
-
 	$scope.$watch('invites', function (newInvites) {
 		$scope.honneurEnfants = 0;
 		$scope.dinerEnfants = 0;
@@ -97,7 +93,19 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.ready = 'non';
 		}
 		$scope.invites.$save(invite);
+
 		toast('Modification sauvegardée', 2000, 'green');
 	};
+
+	$scope.switchRate = function (invite) {
+		invite.alcool++;
+
+		if (invite.alcool == 4) {
+			invite.alcool = 0;
+		}
+
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	}
 
 });
