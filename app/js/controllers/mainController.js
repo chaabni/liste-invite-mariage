@@ -108,4 +108,19 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		toast('Modification sauvegardée', 2000, 'green');
 	};
 
+	$scope.switchAge = function (invite) {
+		if (invite.age === "< 30 ans") {
+			invite.age = "entre 30 et 60 ans";
+		} else if (invite.age === "entre 30 et 60 ans") {
+			invite.age = "> 60 ans";
+		} else if (invite.age === "> 60 ans") {
+			invite.age = "";
+		} else {
+			invite.age = "< 30 ans";
+		}
+
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	};
+
 });
