@@ -88,15 +88,21 @@ hr {
 	}
 }
 
-.btn-floating {
+
+#add-button {
+	position: fixed;
 	top : 30px;
 	right : 300px;
-	margin-right: 20px;
+}
+
+#stats-button {
+	position: fixed;
+	top : 30px;
+	right : 380px;
 }
 
 .navbar-fixed {
 	margin-bottom : 20px;
-
 }
 
 .small-text {
