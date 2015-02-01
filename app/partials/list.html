@@ -144,7 +144,7 @@
 			<tr>
 				<th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Invitation prête à être envoyé ?" ng-click="order('ready')"><i class="icon-envelope-o"></i></th>
 				<th ng-click="order('honneur')">Vin d'honneur</th>
-				<th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Invité au diner de mariage ?" ng-click="order('party')"><i class="icon-cutlery"></i></th>
+				<th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Invité au diner de mariage ?" ng-click="order('party')"><i class="icon-birthday-cake"></i></th>
 				<th ng-click="order('diner')">Diner</th>
 				<th ng-click="order('nom')">Nom</th>
 				<th ng-click="order('adresse')">Adresse</th>
@@ -154,7 +154,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:headerCtrl.search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily ">
+			<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily ">
 				<td class="editable" ng-click="switchReady(invite)" width="80px">
 					<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 				</td>
@@ -174,7 +174,8 @@
 				<td editable required="true" value="invite.nom" on-save="invites.$save(invite)"></td>
 				<td editable required="true" value="invite.adresse" on-save="invites.$save(invite)"></td>
 				<td editable required="true" value="invite.enfants" on-save="invites.$save(invite)"></td>
-				<td editable value="invite.alcool" on-save="invites.$save(invite)"></td>
+				<!--<td editable value="invite.alcool" on-save="invites.$save(invite)"></td>-->
+				<td><i class="icon-glass" ng-repeat="i in getTimes(invite.alcool)"></i></td>
 				<td editable value="invite.age" on-save="invites.$save(invite)"></td>
 			</tr>
 			</tbody>
