@@ -164,7 +164,7 @@
 						'icon-close red-text' : invite.honneur === 'refused'}"></i>
 				</td>
 				<td class="editable" ng-click="switchParty(invite)"  width="80px">
-					<i ng-class="{'icon-cutlery' : invite.party === 'oui'}"></i>
+					<i ng-class="{'icon-birthday-cake' : invite.party === 'oui'}"></i>
 				</td>
 				<td class="editable" ng-click="switchStatus(invite, 'diner')">
 					<i ng-show="invite.party === 'oui'"  ng-class="{'icon-check green-text' : invite.diner === 'confirmed',
@@ -174,8 +174,7 @@
 				<td editable required="true" value="invite.nom" on-save="invites.$save(invite)"></td>
 				<td editable required="true" value="invite.adresse" on-save="invites.$save(invite)"></td>
 				<td editable required="true" value="invite.enfants" on-save="invites.$save(invite)"></td>
-				<!--<td editable value="invite.alcool" on-save="invites.$save(invite)"></td>-->
-				<td><i class="icon-glass" ng-repeat="i in getTimes(invite.alcool)"></i></td>
+				<td icon-rate value="invite.alcool" ng-click="switchRate(invite)" width="80px"></td>
 				<td editable value="invite.age" on-save="invites.$save(invite)"></td>
 			</tr>
 			</tbody>
