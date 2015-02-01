@@ -179,9 +179,9 @@
 						'icon-question orange-text' : invite.diner === 'unanswered',
 						'icon-close red-text' : invite.diner === 'refused'}"></i>
 				</td>
-				<td editable value="invite.nom" on-save="invites.$save(invite)"></td>
-				<td editable value="invite.adresse" on-save="invites.$save(invite)"></td>
-				<td editable value="invite.enfants" on-save="invites.$save(invite)"></td>
+				<td editable required value="invite.nom" on-save="invites.$save(invite)"></td>
+				<td editable required value="invite.adresse" on-save="invites.$save(invite)"></td>
+				<td editable required value="invite.enfants" on-save="invites.$save(invite)"></td>
 				<td editable value="invite.alcool" on-save="invites.$save(invite)"></td>
 				<td editable value="invite.age" on-save="invites.$save(invite)"></td>
 			</tr>
