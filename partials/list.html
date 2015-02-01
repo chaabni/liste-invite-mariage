@@ -141,6 +141,7 @@
 	<section class="row">
 		<section class="col m10 s12 offset-m1">
 			<table id="invite-list" class="bordered striped hoverable centered">
+				<caption class="caption">- {{results.length}} invités trouvés -</caption>
 				<thead>
 				<tr>
 					<th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Invitation prête à être envoyé ?" ng-click="order('ready')"><i class="icon-envelope-o"></i></th>
@@ -155,7 +156,7 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr ng-repeat="invite in invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily ">
+				<tr ng-repeat="invite in results = (invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily) ">
 					<td class="editable" ng-click="switchReady(invite)" width="80px">
 						<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 					</td>
