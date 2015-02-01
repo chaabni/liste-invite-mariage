@@ -31,7 +31,7 @@
 				<form action="#">
 					<p>
 						<input name="statut" type="radio" id="show-all" ng-model="statut" value="ALL"/>
-						<label for="show-all">tous</label>
+						<label for="show-all">tous les invités</label>
 					</p>
 					<p>
 						<input name="statut" type="radio" id="show-confirmed-honneur" ng-model="statut" value="ONLY_HONNEUR_CONFIRMED"/>
@@ -157,6 +157,8 @@
 				<th ng-click="order('nom')">Nom</th>
 				<th ng-click="order('adresse')">Adresse</th>
 				<th ng-click="order('enfants')">Enfants</th>
+				<th ng-click="order('alcool')">Alcool</th>
+				<th ng-click="order('age')">Age</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -180,6 +182,8 @@
 				<td editable value="invite.nom" on-save="invites.$save(invite)"></td>
 				<td editable value="invite.adresse" on-save="invites.$save(invite)"></td>
 				<td editable value="invite.enfants" on-save="invites.$save(invite)"></td>
+				<td editable value="invite.alcool" on-save="invites.$save(invite)"></td>
+				<td editable value="invite.age" on-save="invites.$save(invite)"></td>
 			</tr>
 			</tbody>
 		</table>
