@@ -1,3 +1,5 @@
+/*jshint -W106*/
+
 angular.module('liste-invite-mariage').controller('headerController', function ($scope) {
 
 	"use strict";
