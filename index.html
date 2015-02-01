@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Invités Mariage Thierry & Claire</title>
 
-    <link rel="stylesheet" href="css/5e06271a.liste-invite-mariage.css"/>
+    <link rel="stylesheet" href="css/e8daf277.liste-invite-mariage.css"/>
 </head>
 <body ng-controller="headerController as headerCtrl">
 
@@ -14,27 +14,22 @@
 	<nav class="light-red">
 		<div class="container nav-wrapper">
 			<a href="#" class="brand-logo">Liste des invités</a>
-
 			<form>
 				<div  id="nav-search" class="input-field col s12">
 					<input id="search" type="text" required ng-model="headerCtrl.search.nom" autofocus>
 					<label for="search"><i class="mdi-action-search"></i></label>
 				</div>
 			</form>
-
-			<ul id="nav-mobile" class="right side-nav">
-				<li class="editable" ng-click="toogleFilter()">
-					<i class="mdi-av-equalizer left"></i> Statistiques
-				</li>
-			</ul>
 		</div>
 	</nav>
+	<a id="add-button" ng-click="headerCtrl.showAddForm()" class="btn-floating btn-large waves-effect waves-light blue right"><i class="mdi-content-add"></i></a>
+	<a id="stats-button" ng-click="headerCtrl.showStats()" class="btn-floating btn-large waves-effect waves-light orange right"><i class="mdi-av-equalizer"></i></a>
 </div>
 
 <section ng-view></section>
 
 
-<script src="js/4d25eb35.liste-invite-mariage.js"></script>
+<script src="js/deb37252.liste-invite-mariage.js"></script>
 
 </body>
 </html>

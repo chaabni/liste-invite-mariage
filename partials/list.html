@@ -87,16 +87,6 @@
 		</div>
 	</div>
 
-	<section class="container">
-		<div class="row">
-			<div class="input-field col s12 m4">
-				<button class="waves-effect waves-light btn modal-trigger" ng-click="showAddForm()"><i class="mdi-content-add left"></i>Ajouter un invité</button>
-			</div>
-		</div>
-	</section>
-
-	<hr/>
-
 	<div id="add-form" class="modal" ng-controller="addFormController">
 		<h4>Ajouter un invité</h4>
 		<form class="col s12" name="addForm" novalidate>
@@ -145,6 +135,8 @@
 		</form>
 		<button class="waves-effect btn modal-close" ng-class="{'disabled' : addForm.$invalid}" ng-disabled="addForm.$invalid" ng-click="addInvite(invite)">Ajouter</button>
 	</div>
+
+	<hr/>
 
 	<section class="container">
 		<table id="invite-list" class="bordered striped hoverable centered">
