@@ -40,6 +40,7 @@ angular.module('liste-invite-mariage').controller('addFormController', function 
 
 		inviteService.add($scope.invite).then(function () {
 			initForm();
+			$scope.addForm.$setPristine();
 			toast('Invité ajouté', 4000, 'green');
 		});
 	};
