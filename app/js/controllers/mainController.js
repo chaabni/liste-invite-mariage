@@ -100,12 +100,12 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 	$scope.switchRate = function (invite) {
 		invite.alcool++;
 
-		if (invite.alcool == 4) {
+		if (invite.alcool === 4) {
 			invite.alcool = 0;
 		}
 
 		$scope.invites.$save(invite);
 		toast('Modification sauvegardée', 2000, 'green');
-	}
+	};
 
 });

@@ -8,5 +8,5 @@ angular.module('liste-invite-mariage').directive('iconRate', function () {
 			value : '='
 		},
 		templateUrl : 'js/directives/iconRate/iconRate.html'
-	}
-})
+	};
+});
