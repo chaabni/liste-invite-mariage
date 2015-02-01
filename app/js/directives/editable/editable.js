@@ -24,6 +24,8 @@ angular.module('liste-invite-mariage').directive('editable', function ($timeout)
 
 			scope.editMode = false;
 
+			scope.error = scope.editMode === false && scope.value === '' && attr.required === '';
+
 			scope.enterEditMode = function () {
 				scope.editMode = true;
 				$timeout(function() {
