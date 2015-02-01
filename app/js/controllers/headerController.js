@@ -2,9 +2,13 @@ angular.module('liste-invite-mariage').controller('headerController', function (
 
 	"use strict";
 
-	$scope.toogleFilter = function () {
+	this.showStats = function () {
 		$('#stats').openModal();
 	};
 
+	this.showAddForm = function () {
+		$('#add-form').openModal();
+		$('select').material_select();
+	};
 
 });
