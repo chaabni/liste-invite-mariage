@@ -1,4 +1,4 @@
-angular.module('liste-invite-mariage', ['ngRoute', 'firebase']);
+angular.module('liste-invite-mariage', ['ngRoute', 'firebase', 'angular-chartist']);
 
 angular.module('liste-invite-mariage').config(function ($routeProvider) {
 

@@ -16,36 +16,6 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 
 	$('.tooltipped').tooltip();
 
-	$scope.$watch('invites', function (newInvites) {
-		$scope.honneurEnfants = 0;
-		$scope.dinerEnfants = 0;
-		$scope.honneurAdultes = 0;
-		$scope.dinerAdultes = 0;
-
-		var honneurEnfants = 0,
-			dinerEnfants = 0,
-			honneurAdultes = 0,
-			dinerAdultes = 0;
-
-		_.each(newInvites, function (invite) {
-			if (invite.honneur === 'confirmed') {
-				honneurEnfants += +invite.enfants;
-				honneurAdultes++;
-			}
-
-			if (invite.diner === 'confirmed') {
-				dinerEnfants += +invite.enfants;
-				dinerAdultes++;
-			}
-		});
-
-		$scope.honneurEnfants = honneurEnfants;
-		$scope.dinerEnfants = dinerEnfants;
-		$scope.honneurAdultes = honneurAdultes;
-		$scope.dinerAdultes = dinerAdultes;
-
-	}, true);
-
 	inviteService.fetch()
 		.then(function (data) {
 			$scope.invites = data;
