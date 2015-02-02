@@ -37,8 +37,6 @@ angular.module('liste-invite-mariage').controller('statsController', function ($
 				partyCount++;
 			}
 
-			debugger;
-
 			if (!invite.alcool || invite.alcool === "0") {
 				alcool0++;
 			} else if (invite.alcool === 1) {
