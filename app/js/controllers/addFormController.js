@@ -16,7 +16,8 @@ angular.module('liste-invite-mariage').controller('addFormController', function 
 
 	$scope.coteOptions = [
 		{label : 'Thierry', value : 'Thierry'},
-		{label : 'Claire', value : 'Claire'}
+		{label : 'Claire', value : 'Claire'},
+		{label : 'Jean-Paul', value : 'JP'}
 	];
 
 	$scope.honneurOptions = [

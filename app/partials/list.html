@@ -24,6 +24,10 @@
 						<input name="cote" type="checkbox" id="show-thierry" ng-model="showThierry"/>
 						<label for="show-thierry">de Thierry</label>
 					</p>
+					<p>
+						<input name="cote" type="checkbox" id="show-jean-paul" ng-model="showJeanPaul"/>
+						<label for="show-thierry">de Jean-Paul</label>
+					</p>
 				</form>
 			</div>
 
@@ -157,6 +161,7 @@
 				<caption class="caption">- {{results.length}} invités trouvés -</caption>
 				<thead>
 				<tr>
+					<th ng-click="order('cote')">Cote</th>
 					<th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Invitation prête à être envoyé ?" ng-click="order('ready')"><i class="icon-envelope-o"></i></th>
 					<th ng-click="order('honneur')">Vin d'honneur</th>
 					<th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Invité au diner de mariage ?" ng-click="order('party')"><i class="icon-birthday-cake"></i></th>
@@ -169,7 +174,11 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr ng-repeat="invite in results = (invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry | matchCategory:showFriends:showFamily) ">
+				<tr ng-repeat="invite in results = (invites | orderBy:tri:inverse | filter:search | matchStatut:statut | matchCote:showClaire:showThierry:showJeanPaul | matchCategory:showFriends:showFamily) ">
+					<td class="editable small-text" ng-click="switchCote(invite)">
+						{{invite.cote}}
+						<i class="icon-question orange-text" ng-hide="invite.cote" width="200px"></i>
+					</td>
 					<td class="editable" ng-click="switchReady(invite)" width="80px">
 						<i ng-class="{'icon-envelope-o' : invite.ready === 'oui'}"></i>
 					</td>

@@ -8,6 +8,7 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 	$scope.showFamily = true;
 	$scope.showClaire = true;
 	$scope.showThierry = true;
+	$scope.showJeanPaul = true;
 
 	$scope.honneurEnfants = 0;
 	$scope.dinerEnfants = 0;
@@ -92,5 +93,22 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		$scope.invites.$save(invite);
 		toast('Modification sauvegardée', 2000, 'green');
 	};
+
+	$scope.switchCote = function (invite) {
+		if (invite.cote === "Thierry") {
+			invite.cote = "Claire";
+		} else if (invite.cote === "Claire") {
+			invite.cote = "JP";
+		} else if (invite.cote === "JP") {
+			invite.cote = "";
+		} else {
+			invite.cote = "Thierry";
+		}
+
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	};
+
+
 
 });
