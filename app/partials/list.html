@@ -172,6 +172,7 @@
 					<th ng-click="order('enfants')">Enfants</th>
 					<th ng-click="order('alcool')">Alcool</th>
 					<th ng-click="order('age')">Age</th>
+					<th><i class="mdi-action-delete"></i></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -208,6 +209,7 @@
 						{{invite.age}}
 						<i class="icon-question orange-text" ng-hide="invite.age" width="200px"></i>
 					</td>
+					<td class="editable" ng-click="remove(invite)"><i class="mdi-action-delete"></i></td>
 				</tr>
 				</tbody>
 			</table>

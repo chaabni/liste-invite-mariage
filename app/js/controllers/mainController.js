@@ -41,8 +41,10 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite[statut] = 'unanswered';
 		}
 
-		$scope.invites.$save(invite);
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
+
 	};
 
 	$scope.switchParty = function (invite) {
@@ -53,8 +55,10 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.party = 'non';
 			invite.diner = 'unanswered';
 		}
-		$scope.invites.$save(invite);
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
+
 	};
 
 	$scope.switchReady = function (invite) {
@@ -63,9 +67,9 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		} else {
 			invite.ready = 'non';
 		}
-		$scope.invites.$save(invite);
-
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
 	};
 
 	$scope.switchRate = function (invite) {
@@ -75,8 +79,9 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.alcool = 0;
 		}
 
-		$scope.invites.$save(invite);
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
 	};
 
 	$scope.switchAge = function (invite) {
@@ -90,8 +95,10 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.age = "< 35 ans";
 		}
 
-		$scope.invites.$save(invite);
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
+
 	};
 
 	$scope.switchCote = function (invite) {
@@ -105,8 +112,10 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.cote = "Thierry";
 		}
 
-		$scope.invites.$save(invite);
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
+
 	};
 
 	$scope.switchCategorie = function (invite) {
@@ -118,10 +127,16 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 			invite.categorie = "famille";
 		}
 
-		$scope.invites.$save(invite);
-		toast('Modification sauvegardée', 2000, 'green');
+		$scope.invites.$save(invite).then(function () {
+			toast('Modification sauvegardée', 2000, 'green');
+		});
 	};
 
-
+	$scope.remove = function (invite) {
+		var text = invite.nom + ' a été retiré de la liste des invités';
+		$scope.invites.$remove(invite).then(function () {
+			toast(text, 5000, 'green');
+		});
+	};
 
 });
