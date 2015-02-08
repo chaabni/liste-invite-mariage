@@ -108,8 +108,17 @@
 		<h4>Ajouter un invité</h4>
 		<form class="col s12" name="addForm" novalidate>
 			<div class="row">
-				<label>De quel côté de la famille est cet invité ?</label>
+				<label>De quel côté est cet invité ?</label>
 				<select class="browser-default" ng-model="cote" name="cote" required ng-options="coteOption as coteOption.label for coteOption in coteOptions"></select>
+			</div>
+			<div class="row">
+				<label>Ami ou Famille ?</label>
+				<p>
+					<input name="categorie" type="radio" id="ami" value="ami" ng-model="invite.categorie"/>
+					<label for="ami">Ami</label>
+					<input name="categorie" type="radio" id="famille" value="famille" ng-model="invite.categorie"/>
+					<label for="famille">Famille</label>
+				</p>
 			</div>
 			<div class="row">
 				<div class="input-field">
@@ -139,13 +148,13 @@
 			<div class="row">
 				<label>Invité au diner</label>
 				<p>
-					<input name="party" type="radio" id="oui" value="oui" ng-model="party"/>
+					<input name="party" type="radio" id="oui" value="oui" ng-model="invite.party"/>
 					<label for="oui">Oui</label>
-					<input name="party" type="radio" id="non" value="non" ng-model="party"/>
+					<input name="party" type="radio" id="non" value="non" ng-model="invite.party"/>
 					<label for="non">Non</label>
 				</p>
 			</div>
-			<div class="row" ng-show="party === 'oui'">
+			<div class="row" ng-show="invite.party === 'oui'">
 				<label>Réponse pour le diner</label>
 				<select class="browser-default" ng-model="diner" name="diner" required ng-options="dinerOption as dinerOption.label for dinerOption in dinerOptions"></select>
 			</div>
@@ -172,6 +181,7 @@
 					<th ng-click="order('enfants')">Enfants</th>
 					<th ng-click="order('alcool')">Alcool</th>
 					<th ng-click="order('age')">Age</th>
+					<th><i class="mdi-action-delete"></i></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -208,6 +218,7 @@
 						{{invite.age}}
 						<i class="icon-question orange-text" ng-hide="invite.age" width="200px"></i>
 					</td>
+					<td class="editable" ng-click="remove(invite)"><i class="mdi-action-delete"></i></td>
 				</tr>
 				</tbody>
 			</table>
