@@ -109,6 +109,19 @@ angular.module('liste-invite-mariage').controller('mainController', function ($s
 		toast('Modification sauvegardée', 2000, 'green');
 	};
 
+	$scope.switchCategorie = function (invite) {
+		if (invite.categorie === "famille") {
+			invite.categorie = "ami";
+		} else if (invite.categorie === "ami") {
+			invite.categorie = "famille";
+		} else {
+			invite.categorie = "famille";
+		}
+
+		$scope.invites.$save(invite);
+		toast('Modification sauvegardée', 2000, 'green');
+	};
+
 
 
 });
